@@ -7,7 +7,6 @@ let currentPage = 1;
 let totalPages = 1;
 const searchSubject = new Subject();
 const movieSubject = new BehaviorSubject([]);
-const genreSubject = new BehaviorSubject([]);
 
 const sortMoviesAlphabetically = (movies) => {
   return movies.sort((a, b) => a.title.localeCompare(b.title));
@@ -42,21 +41,7 @@ export const movieService = {
     currentPage = 1;
     searchSubject.next(term);
   },
-  genres$: genreSubject.asObservable(),
-  
-  loadGenres() {
-    const genreUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en`;
-    from(fetch(genreUrl).then(res => res.json()))
-    .pipe(
-      tap(response => {
-        genreSubject.next(response.genres);
-      }),
-      catchError(error => {
-        console.error('Eroare la încărcarea genurilor:', error.message);
-        return [];
-      })
-    ).subscribe();
-  }
+
 };
 
 searchSubject.pipe(

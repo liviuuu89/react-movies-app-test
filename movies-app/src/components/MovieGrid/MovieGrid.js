@@ -6,7 +6,7 @@ import MovieCard from '../MovieCard/MovieCard';
 const MovieGrid = ({ toggleFavorite, favoriteMovies }) => {
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [genres, setGenres] = useState([]);
+    
     
     const loadMovies = () => {
       setLoading(true);
@@ -15,14 +15,14 @@ const MovieGrid = ({ toggleFavorite, favoriteMovies }) => {
     };
   
     useEffect(() => {
-      const genreSubscription = movieService.genres$.subscribe(setGenres);
+      
 
       const subscription = movieService.movies$.subscribe(movies => {
         setMovies(movies);
         setLoading(false);
       });
       loadMovies();
-      movieService.loadGenres();
+      
 
       window.onscroll = () => {
         if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 100) {
@@ -32,7 +32,7 @@ const MovieGrid = ({ toggleFavorite, favoriteMovies }) => {
   
       return () => {
         subscription.unsubscribe();
-        genreSubscription.unsubscribe();
+       
 
         window.onscroll = null;
       };

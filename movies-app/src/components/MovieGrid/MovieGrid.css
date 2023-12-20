@@ -9,13 +9,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px; /* Ajustează înălțimea după preferințe */
+    height: 100px; 
     margin: 20px 0;
   }
   
   .loader::after {
     content: 'Loading...';
     font-size: 20px;
-    color: #007bff; /* Ajustează culoarea textului după preferințe */
+    color: #007bff; 
   }
   
+  @media screen and (max-width: 600px) {
+  .movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 0px;
+    padding: 0px;
+    
+  }
+}
+
+ 

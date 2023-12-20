@@ -51,4 +51,11 @@
     background-color: #0056b3;
   }
 
-  
+  @media screen and (max-width: 600px) {
+    
+  .movie-card {
+   
+    width: 175px;
+    min-height: auto;
+  }
+  }
