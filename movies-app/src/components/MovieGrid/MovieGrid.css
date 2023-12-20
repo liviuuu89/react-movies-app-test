@@ -1,0 +1,21 @@
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    grid-gap: 20px;
+    padding: 20px;
+    justify-content: center;
+  }
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Ajustează înălțimea după preferințe */
+    margin: 20px 0;
+  }
+  
+  .loader::after {
+    content: 'Loading...';
+    font-size: 20px;
+    color: #007bff; /* Ajustează culoarea textului după preferințe */
+  }
+  
